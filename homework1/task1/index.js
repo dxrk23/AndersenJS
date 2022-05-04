@@ -1,8 +1,8 @@
-let first_number = +prompt('Пожалуйста введите первое число!');
-let second_number = +prompt('Пожалуйста введите второе число!');
+const FIRST_NUMBER = +prompt('Пожалуйста введите первое число!');
+const SECOND_NUMBER = +prompt('Пожалуйста введите второе число!');
 
-if (isNaN(first_number) || isNaN(second_number)) {
+if (isNaN(FIRST_NUMBER) || isNaN(SECOND_NUMBER)) {
   throw new Error('Некорректный ввод');
 }
 
-console.log(first_number.toString(second_number));
+console.log(FIRST_NUMBER.toString(SECOND_NUMBER));

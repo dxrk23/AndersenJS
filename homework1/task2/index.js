@@ -1,7 +1,7 @@
-let first_number = +prompt('Пожалуйста введите первое число!');
-isValid(first_number);
-let second_number = +prompt('Пожалуйста введите второе число!');
-isValid(second_number);
+const FIRST_NUMBER = +prompt('Пожалуйста введите первое число!');
+isValid(FIRST_NUMBER);
+const SECOND_NUMBER = +prompt('Пожалуйста введите второе число!');
+isValid(SECOND_NUMBER);
 
 function isValid(number) {
   if (isNaN(number)) {
@@ -10,5 +10,5 @@ function isValid(number) {
 }
 
 console.log(
-  `Ответ: ${first_number + second_number}, ${first_number / second_number}`
+  `Ответ: ${FIRST_NUMBER + SECOND_NUMBER}, ${FIRST_NUMBER / SECOND_NUMBER}`
 );
