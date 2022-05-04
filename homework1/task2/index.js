@@ -1,5 +1,6 @@
 const FIRST_NUMBER = +prompt('Пожалуйста введите первое число!');
 isValid(FIRST_NUMBER);
+
 const SECOND_NUMBER = +prompt('Пожалуйста введите второе число!');
 isValid(SECOND_NUMBER);
 
