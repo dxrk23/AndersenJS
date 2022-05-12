@@ -1,5 +1,6 @@
 function makeObjectDeepCopy(objectToCopy) {
   let copiedObject = {};
+
   for (let key in objectToCopy) {
     if (typeof objectToCopy[key] === 'object') {
       copiedObject[key] = makeObjectDeepCopy(objectToCopy[key]);
@@ -7,6 +8,7 @@ function makeObjectDeepCopy(objectToCopy) {
       copiedObject[key] = objectToCopy[key];
     }
   }
+
   return copiedObject;
 }
 
@@ -19,23 +21,23 @@ function selectFromInterval(
     throw new Error('The first argument must be an array.');
   }
 
-  const MAX_INTERVAL_VALUE = Math.max(firstIntervalValue, secondIntervalValue);
-  const MIN_INTERVAL_VALUE = Math.min(firstIntervalValue, secondIntervalValue);
-  const RESULT = [];
+  const maxIntervalValue = Math.max(firstIntervalValue, secondIntervalValue);
+  const minIntervalValue = Math.min(firstIntervalValue, secondIntervalValue);
+  const result = [];
 
   for (let i = 0; i < arrayOfNumbers.length; i++) {
     if (typeof arrayOfNumbers[i] !== 'number') {
       throw new Error('The array must contain only numbers.');
     }
     if (
-      arrayOfNumbers[i] >= MIN_INTERVAL_VALUE &&
-      arrayOfNumbers[i] <= MAX_INTERVAL_VALUE
+      arrayOfNumbers[i] >= minIntervalValue &&
+      arrayOfNumbers[i] <= maxIntervalValue
     ) {
-      RESULT.push(arrayOfNumbers[i]);
+      result.push(arrayOfNumbers[i]);
     }
   }
 
-  return RESULT;
+  return result;
 }
 
 const myIterable = { from: 1, to: 10 };
@@ -44,13 +46,17 @@ myIterable[Symbol.iterator] = function* () {
   if (this.from > this.to) {
     throw new Error('The first argument must be less than the second.');
   }
+
   if (typeof this.from !== 'number' || typeof this.to !== 'number') {
     throw new Error('The arguments must be numbers.');
   }
+
   if (this.from === undefined || this.to === undefined) {
     throw new Error('The arguments must be defined.');
   }
+
   for (let i = this.from; i <= this.to; i++) {
     yield i;
   }
 };
+
