@@ -11,13 +11,13 @@ Array.prototype.myFilter = function(callback, obj = this) {
 }
 
 
-function createDebounceFunction(func, wait) {
+function createDebounceFunction(func, delay) {
   let timeout;
   
   return function() {
     const context = this;
     const args = arguments;
     clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(context, args), wait);
+    timeout = setTimeout(() => func.apply(context, args), delay);
   }
 }
