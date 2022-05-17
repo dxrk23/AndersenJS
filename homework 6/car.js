@@ -78,9 +78,7 @@ class Car {
   }
 
   set brand(brand) {
-    Validator.validateStringLength(
-      brand, 1, 50, 'Wrong brand length'
-    );
+    Validator.validateStringLength(brand, 1, 50, 'Wrong brand length');
 
     this.#brand = brand;
   }
@@ -90,9 +88,7 @@ class Car {
   }
 
   set model(model) {
-    Validator.validateStringLength(
-      model, 1, 50, 'Wrong model length'
-    );
+    Validator.validateStringLength(model, 1, 50, 'Wrong model length');
 
     this.#model = model;
   }
@@ -117,9 +113,7 @@ class Car {
   }
 
   set maxSpeed(maxSpeed) {
-    Validator.isNumberInRange(
-      maxSpeed, 100, 300, 'Wrong max speed'
-    );
+    Validator.isNumberInRange(maxSpeed, 100, 300, 'Wrong max speed');
 
     this.#maxSpeed = maxSpeed;
   }
@@ -129,9 +123,7 @@ class Car {
   }
 
   set maxFuelVolume(maxFuelVolume) {
-    Validator.isNumberInRange(
-      maxFuelVolume, 5, 20, 'Wrong max fuel volume'
-    );
+    Validator.isNumberInRange(maxFuelVolume, 5, 20, 'Wrong max fuel volume');
 
     this.#maxFuelVolume = maxFuelVolume;
   }
