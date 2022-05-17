@@ -63,16 +63,13 @@ class Car {
       throw new Error('Cannot drive, car is not started');
     }
 
-    if (
-      this.#currentFuelVolume -
-        this.#fuelConsumption * ((speed * driveHours) / 100) < 0
-    ) {
+    const consumption = this.#fuelConsumption * ((speed * driveHours) / 100);
+
+    if (this.#currentFuelVolume - consumption < 0) {
       throw new Error('Cannot drive, not enough fuel');
     }
 
-    this.#currentFuelVolume -=
-      this.#fuelConsumption * ((speed * driveHours) / 100);
-
+    this.#currentFuelVolume -= consumption;
     this.#mileage += (speed * driveHours) / 100;
   }
 
