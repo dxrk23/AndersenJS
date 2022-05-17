@@ -70,7 +70,7 @@ class Car {
     }
 
     this.#currentFuelVolume -= consumption;
-    this.#mileage += (speed * driveHours) / 100;
+    this.#mileage += speed * driveHours;
   }
 
   get brand() {
