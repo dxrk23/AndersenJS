@@ -63,6 +63,46 @@ class LinkedList {
 
     return node.value;
   }
+
+  find(value) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return current;
+      }
+
+      current = current.next;
+    }
+
+    return null;
+  }
+
+  toArray() {
+    const result = [];
+    let current = this.head;
+
+    while (current) {
+      result.push(current.value);
+      current = current.next;
+    }
+
+    return result;
+  }
+
+  static fromIterable(iterable) {
+    if (iterable[Symbol.iterator] === undefined) {
+      throw new Error('iterable must be iterable');
+    }
+
+    const list = new LinkedList();
+
+    for (const value of iterable) {
+      list.append(value);
+    }
+
+    return list;
+  }
 }
 
 class Stack {
@@ -100,21 +140,12 @@ class Stack {
   }
 
   toArray() {
-    const array = [];
-
-    let node = this.list.head;
-
-    while (node !== null) {
-      array.push(node.value);
-      node = node.next;
-    }
-
-    return array;
+    return this.list.toArray();
   }
 
   static fromIterable(iterable) {
-    if (!iterable[Symbol.iterator]) {
-      throw new Error('Object is not iterable');
+    if (iterable[Symbol.iterator] === undefined) {
+      throw new Error('iterable must be iterable');
     }
 
     const stack = new Stack();
